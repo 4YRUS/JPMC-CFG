@@ -35,7 +35,7 @@ def user_login(request):
 				return render(request,'leef.html',{'role' : place})
 			if place == "":
 				return user_logout(request)
-		return redirect('login')
+		
 	return render(request,'login.html',{})
 
 def user_logout(request):
@@ -69,3 +69,11 @@ def register(request):
 		form=sign_up()
 
 	return render(request,'register.html',{'form':form})
+
+def sponsor(request):
+	if request.method=='POST':
+		name = request.POST['name']
+		email = request.POST['email']
+		amount = request.POST['amount']
+		return render(request,'done.html',{'data':[name,email,amount]})
+	return render(request,'sponsor.html')

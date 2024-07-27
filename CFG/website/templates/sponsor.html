@@ -1,0 +1,135 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<style type="text/css">
+    
+
+.container {
+    display: flex;
+    width: 80%;
+    max-width: 1200px;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    gap: 20px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+.right-section, .left-section {
+    flex: 1;
+    padding: 20px;
+}
+
+.left-section {
+    border-right: 1px solid #ddd;
+}
+
+.heading {
+    text-align: center;
+}
+
+.heading h1,
+.heading p {
+    margin: 0;
+}
+
+.left-section h2,
+.right-section h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.left-section p,
+.right-section p {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.payment-icons {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    
+}
+
+.payment-icons img {
+    width: 130px;
+    height: auto;
+    
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+form input {
+    margin-bottom: 20px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+form button {
+    padding: 10px;
+    font-size: 16px;
+    color: white;
+    background-color: #0056b3;;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width : 100px;
+}
+
+form button:hover {
+    background-color: #ffeb3b;
+    color: black;
+}
+</style>
+
+<body>
+    <div class="container" style = " border-radius: 20px">
+        <div class="left-section">
+            <h2>Online Banking Details</h2>
+            <p><strong>Account Holder:</strong> Aspire and Glee Society</p>
+            <p><strong>Account Number:</strong> 123456789</p>
+            <p><strong>FSC Code:</strong> ABCD0001234</p>
+            
+            <div class="payment-icons">
+                <img src="data:image/jpeg;base64,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" alt="Upload Payment">
+            </div>
+        </div>
+        <div class="right-section">
+            <div class="heading">
+                <h1>Donate With Us</h1>
+                <p>Fill out the form below to sponsor a child in need.</p>
+            </div>
+            <form method="POST">
+                {% csrf_token %}
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+                <label for="amount">Amount</label>
+                <input type="tel" id="amount" name="amount" placeholder="Enter the amount" required>
+
+                <center><button class= "btn btn-primary"type="submit">Submit</button></center>
+            </form>
+        </div>
+    </div>
+</body>
+
+
+{% endblock %}

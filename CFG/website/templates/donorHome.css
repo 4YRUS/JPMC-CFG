@@ -1,9 +1,4 @@
-{% extends 'base.html' %}
-
-{% block content %}
-
-<style type="text/css">
-	* {
+* {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -13,7 +8,6 @@ body {
     font-family: Arial, sans-serif;
     background-color: #f9f9f9;
     color: #333;
-    padding: 0px;
 }
 
 .navbar {
@@ -40,12 +34,10 @@ body {
 }
 
 .container {
-
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0px;
+    padding: 20px;
     text-align: center;
-
 }
 
 .header {
@@ -125,40 +117,3 @@ body {
     transform: scale(1.05);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
-</style>
-
-<body>
-
-    <div class="container">
-        <header class="header">
-            <h1>Make a Difference with Donor Delight</h1>
-            <p>Our mission is to provide essential support to those in need, empowering communities and transforming
-                lives through compassionate giving.</p>
-        </header>
-        <main class="main">
-            <div class="card">
-                <div class="content">
-                    <h2>Sponsor a Child</h2>
-                    <p>Give a child the chance to thrive with your monthly sponsorship.</p>
-                    <a href="{% url 'sponsor' %}" class="btn btn-primary">Learn More</a>
-                </div>
-            </div>
-            <div class="card">
-                <div class="content">
-                    <h2>Donate Clothes</h2>
-                    <p>Declutter your closet and provide warmth to those in need.</p>
-                    <a href="donate.html" class="btn btn-primary">Learn More</a>
-                </div>
-            </div>
-            <div class="card">
-                <div class="content">
-                    <h2>View Past Donations</h2>
-                    <p>See the impact of your generosity and stay connected.</p>
-                    <a href="past.html" class="btn btn-primary">Learn More</a>
-                </div>
-            </div>
-        </main>
-    </div>
-</body>
-
-{% endblock%}
