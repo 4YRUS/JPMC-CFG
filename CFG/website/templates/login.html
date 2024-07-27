@@ -5,7 +5,7 @@
 {% if user.is_authenticated %}
 
 {% else %}
-<div class='container' style='background-color: #1d2225; width: 40vw; height: 40vh; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); border-radius: 20px; padding-top: 20px;'>
+<div class='container' style='background-color: #0056b3; width: 40vw; height: 40vh; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); border-radius: 20px; padding-top: 20px;'>
 	<form method="POST">
 		{% csrf_token %}
 	  <div>
@@ -19,7 +19,7 @@
 	    <input type="text" name='password' class="form-control" id="exampleInputPassword1">
 	  </div>
 	  <br>
-	  <center><button type="submit" class="btn btn-secondary" >Submit</button></center>
+	  <center><button type="submit" class="btn btn-primary" >Submit</button></center>
 	</form>
 </div>
 {% endif %}

@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class='container' style='width: 40vw; height: 60vh; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); background-color : #1d2225 ; border-radius: 20px ; padding-top: 20px;	'>
+<div class='container' style='width: 40vw; height: 60vh; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); background-color : #0056b3 ; border-radius: 20px ; padding-top: 20px;	'>
 	<form method="POST">
 		{% csrf_token %}
 		
@@ -27,7 +27,7 @@
 		    <input type="text" name='password2' class="form-control" id="exampleInputPassword2">
 	  	</div>
 	  	<br>
-		<center><input type="submit" class='btn btn-secondary'></center>
+		<center><input type="submit" class='btn btn-primary'></center>
 	</form>
 </div>
 {% endblock %}
