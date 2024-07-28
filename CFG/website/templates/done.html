@@ -2,6 +2,43 @@
 
 {% block content %}
 
-<h1>{{data}}</h1>
+<!DOCTYPE html>
+
+    <style>
+        .container {
+            text-align: center;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            height: 30vh;
+            width : 30vw;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .container h1 {
+            margin-bottom: 20px;
+        }
+        .container button {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: white;
+            background-color: #0056b3;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .container button:hover {
+            background-color: #ffeb3b;
+            color: black;
+        }
+    </style>
+    <div class="container">
+        <h1>Payment Successful</h1>
+        <p>Thank you {{name}} for donating Rs{{amount}} to our charity</p>
+    </div>
+
 
 {% endblock %}

@@ -1,0 +1,116 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<style type="text/css">
+	
+
+.container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    max-width: 800px;
+    background-color: white;
+    /* padding: 20px; */
+    box-sizing: border-box;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    /* margin: 20px; */
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.right-section {
+    flex: 1;
+    padding: 20px;
+}
+
+.heading {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.heading h1 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.heading p {
+    font-size: 16px;
+    color: #555;
+}
+
+.form-container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+form input {
+    margin-bottom: 15px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+form button {
+    padding: 10px;
+    font-size: 16px;
+    color: white;
+    background-color: #0056b3;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    max-width: 200px;
+    margin-top: 10px;
+}
+
+form button:hover {
+    background-color: #3ba7ff;
+    color: black;
+}
+</style>
+
+  <div class="right-section">
+    <div class="heading">
+        <h1>Student Registration</h1>
+        <p>Fill out the form to enter student details.</p>
+    </div>
+    <form method="POST">
+    	{% csrf_token %}
+        <label for="name" aria-required="true">Name of the student</label>
+        <input type="text" id="name" name="name" placeholder="Enter name" required>
+
+        <label for="name" aria-required="true">Parent/Guardian Name</label>
+        <input type="text" id="name" name="name" placeholder="Enter parent/guardian name" required>
+
+        <label for="name" aria-required="true">Grade</label>
+        <input type="text" id="grade" name="grade" placeholder="Enter grade" required>
+
+        <label for="birthday">Bithday</label>
+        <input type="date" id="birthday" name="birthday" placeholder="Enter birth date" required>
+
+        <label for="phone" aria-required="true">Enter phone number</label>
+        <input type="tel" id="phone" name="phone" placeholder="Enter phone number" required>
+
+        <label for="name" aria-required="true">Required Amount</label>
+        <input type="text" id="grade" name="amount" placeholder="Enter grade" required>
+
+        <button type="submit">Submit</button>
+    </form>
+</div>
+
+
+{% endblock %}

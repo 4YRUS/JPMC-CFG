@@ -2,6 +2,142 @@
 
 {% block content %}
 
-<h1>Leef</h1>
+<style type="text/css">
+	
+	/* General styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+
+
+/* Container styles */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Header styles */
+.header {
+  margin-bottom: 70px;
+}
+
+.header h1 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #0056b3;
+}
+
+.header p {
+  font-size: 1.3rem;
+  color: #666;
+}
+
+/* Main content styles */
+.main {
+  display: flex;
+  justify-content: space-around;
+  gap: 20px;
+}
+
+/* Card styles */
+.card {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 px;
+  flex: 1;
+  height: 400px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card h2 {
+  font-size: 1.75rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  color: #0056b3;
+}
+
+.card p {
+  font-size: 1.25rem;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.content {
+  padding-top: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+/* Button styles */
+.button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #0056b3;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.button:hover {
+  background-color: #ffeb3b;
+  color: #333;
+}
+
+/* Card hover effect */
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+</style>
+
+
+    <div class="container">
+        <header class="header">
+            <h1>Heroes Among Us: The On-Field Workers of Donor Delight</h1>
+            <p>Our dedicated on-field workers at Donor Delight are true heroes, tirelessly delivering essential support with compassion and dedication. They empower communities, transform lives, and spread hope through selfless acts of kindness. Their commitment inspires us all to be better and more compassionate.<p>
+        </header>
+        <main class="main">
+            <div class="card">
+                <div class="content">
+                    <h2>Sponsor a Child: Empowering Futures Together</h2>
+                    <p>Our field workers track their progress, ensuring they receive the resources and encouragement needed to thrive and build brighter futures.
+
+                    </p>
+                    <a href="{% url 'studentregister' %}" class="button">Learn More</a>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="content">
+                    <h2>Witness the Impact</h2>
+                    <p>Stay connected with the stories of those you’ve helped and the lasting impact of your past donations.</p>
+                    <p></p>
+                    <p></p>
+                    <p></p>
+                    <p></p>
+                    <a href="#" class="button">Learn More</a>
+                </div>
+            </div>
+        </main>
+    </div>
+
 
 {% endblock%}

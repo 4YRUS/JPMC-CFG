@@ -100,6 +100,8 @@ form button:hover {
 <body>
     <div class="container" style = " border-radius: 20px">
         <div class="left-section">
+            <h2>Click here for student details : </h2>
+            <a href="{% url 'children' %}" class="btn btn-primary">Children</a>
             <h2>Online Banking Details</h2>
             <p><strong>Account Holder:</strong> Aspire and Glee Society</p>
             <p><strong>Account Number:</strong> 123456789</p>
@@ -119,6 +121,9 @@ form button:hover {
                 <label for="name">Name</label>
                 <input type="text" id="name" name="name" placeholder="Enter your name" required>
 
+                <label for="name">ID of Child</label>
+                <input type="text" id="chlid" name="child" placeholder="ID" required>
+
                 <label for="email">Email</label>
                 <input type="email" id="email" name="email" placeholder="Enter your email" required>
 
@@ -126,10 +131,13 @@ form button:hover {
                 <input type="tel" id="amount" name="amount" placeholder="Enter the amount" required>
 
                 <center><button class= "btn btn-primary"type="submit">Submit</button></center>
+                
             </form>
+
         </div>
     </div>
 </body>
+
 
 
 {% endblock %}

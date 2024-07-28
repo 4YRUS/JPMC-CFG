@@ -1,0 +1,134 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<style type="text/css">
+	
+
+/* Container styles */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Header styles */
+.header {
+  margin-bottom: 70px;
+}
+
+.header h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #0056b3;
+}
+
+.header p {
+  font-size: 1.5rem;
+  color: #666;
+}
+
+/* Main content styles */
+.main {
+  display: flex;
+  justify-content: space-around;
+  gap: 20px;
+}
+
+/* Card styles */
+/* Card styles */
+.card {
+  background-color: #fff;
+  padding: 40px; /* Increase padding for larger cards */
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 100%;
+  max-width: 500px; /* Increase max-width for larger cards */
+  margin: 20px auto; /* Add margin for spacing */
+  flex: 1;
+  height: 280px; /* Increase height for larger cards */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card h2 {
+  font-size: 2rem; /* Increase font size */
+  font-weight: bold;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  color: #0056b3;
+}
+
+.card p {
+  font-size: 1.5rem; /* Increase font size */
+  color: #666;
+  margin-bottom: 40px;
+}
+
+.content {
+  padding-top: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+/* Button styles */
+.button {
+  display: inline-block;
+  padding: 13px 50px; /* Increase padding to make the button larger */
+  background: linear-gradient(45deg, #0056b3, #007bff); /* Gradient background */
+  color: #ffffff;
+  border: 2px solid #ffffff; /* White border */
+  border-radius: 5%; /* Makes the button round */
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.3s ease, color 0.3s ease, transform 0.2s ease; /* Added transition for transform */
+  text-align: center; /* Center the text */
+  font-size: 1.5rem; /* Increase font size for better proportion */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
+}
+
+
+.button:hover {
+  background: linear-gradient(45deg, #3ba7ff, #3ba7ff); /* Change gradient on hover */
+  color: #333;
+  transform: translateY(-5px); /* Slight lift effect on hover */
+}
+
+/* Card hover effect */
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+</style>
+
+
+    <div class="container">
+        <header class="header">
+            <h1>Sponsor a Child: Empowering Futures Together</h1>
+            <p>Our field workers track their progress, ensuring they receive the resources and encouragement needed to thrive and build brighter futures.</p>
+        </header>
+        <main class="main">
+            <div class="card">
+                <div class="content">
+                    <h2>Add a new student</h2>
+                    <p></p>
+                    <a href="{% url 'apple' %}" class="button">Register</a>
+                </div>
+            </div>
+            <div class="card">
+                <div class="content">
+                    <h2> Add the progress report of the student</h2>
+                    <a href="{% url 'banana' %}" class="button">Upload Report</a>
+                </div>
+            </div>
+            
+        </main>
+    </div>
+
+
+{% endblock %}

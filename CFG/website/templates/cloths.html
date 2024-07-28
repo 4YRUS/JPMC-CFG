@@ -1,0 +1,180 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<style type="text/css">
+	
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    background-color: #fff;
+    padding: 10px 20px;
+    /* Reduced padding */
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 1200px;
+    width: 90%;
+    margin: 0 auto;
+    /* Center the container */
+    position: relative;
+}
+
+.divider {
+    width: 2px;
+    background-color: #ddd;
+    position: absolute;
+    top: 20px;
+    /* Adjust top position as needed */
+    bottom: 20px;
+    /* Adjust bottom position as needed */
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.right-section {
+    width: 45%;
+}
+
+.left-section {
+    width: 45%;
+    box-sizing: border-box;
+}
+
+.left-section .description {
+    font-size: 17px;
+    color: #666;
+    margin-bottom: 20px;
+    max-width: calc(100% - 100px);
+}
+
+.left-section h1,
+.right-section h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.left-section p,
+.right-section p {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+
+.bank {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.bank-label {
+    width: 80px;
+    font-weight: bold;
+}
+
+.status {
+    padding: 10px 20px;
+    border-radius: 20px;
+    margin-left: 10px;
+    color: #fff;
+    font-weight: bold;
+
+    display: inline-block;
+        width: 150px;
+        
+        text-align: center;
+        
+}
+
+.status.available {
+    background-color: #4caf50;
+}
+
+.status.full {
+    background-color: #f44336;
+}
+
+
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+form input,
+form textarea,
+form button {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+form button {
+    background-color: #0056b3;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    width: 100px;
+}
+
+form button:hover {
+    background-color: #ffeb3b;
+    color: black;
+}
+</style>
+
+<div class="container" style="margin-top: 40px">
+        <div class="left-section">
+            <h2>Clothing Banks</h2>
+            <p class="description">Here you can find the current status of various clothing banks. Check the availability and
+                see which ones are full.</p>
+            <div class="bank">
+                <span class="bank-label">Bank 1</span>
+                <div class="status available">Space Available</div>
+            </div>
+            <div class="bank">
+                <span class="bank-label">Bank 2</span>
+                <div class="status available">Space Available</div>
+            </div>
+            <div class="bank">
+                <span class="bank-label">Bank 3</span>
+                <div class="status available">Space Available</div>
+            </div>
+            <div class="bank">
+                <span class="bank-label">Bank 4</span>
+                <div class="status full">Full</div>
+            </div>
+            <div class="bank">
+                <span class="bank-label">Bank 5</span>
+                <div class="status full">Full</div>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+        <div class="right-section">
+            <h1>Donate Clothes</h1>
+            <p>Fill out the form below to donate your clothes.</p>
+            <form  method="POST">
+            	{% csrf_token %}
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                <label for="description">Description of Clothes</label>
+                <textarea id="description" name="description" placeholder="Describe the clothes you are donating"
+                    required></textarea>
+                <label for="pieces">Number of Pieces</label>
+                <input type="number" id="pieces" name="pieces" placeholder="Enter the number of pieces" required>
+                <button type="#">Submit</button>
+            </form>
+        </div>
+    </div>
+
+{% endblock %}
+

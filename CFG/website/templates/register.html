@@ -1,13 +1,14 @@
 {% extends 'base.html' %}
 
 {% block content %}
+
 <div class='container' style='width: 40vw; height: 60vh; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); background-color : #0056b3 ; border-radius: 20px ; padding-top: 20px;	'>
 	<form method="POST">
 		{% csrf_token %}
 		
 		<div>
 		   <label for="exampleInputPassword1" class="form-label" style="color : white"> <b>UserName</b></label>
-		   <input type="text" name='username' class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+		   <input type="email" required name='username' class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
 		</div>
 
 		<div class="mb-3">
@@ -20,11 +21,11 @@
 
 	  	<div ><br>
 		    <label for="exampleInputPassword1" class="form-label" style="color : white"><b>Password</b></label>
-		    <input type="text" name='password1' class="form-control" id="exampleInputPassword1">
+		    <input type="text" required name='password1' class="form-control" id="exampleInputPassword1">
 	  	</div>
 	  	<div ><br>
 		    <label for="exampleInputPassword1" class="form-label" style="color : white"><b>Password</b></label>
-		    <input type="text" name='password2' class="form-control" id="exampleInputPassword2">
+		    <input type="text" required name='password2' class="form-control" id="exampleInputPassword2">
 	  	</div>
 	  	<br>
 		<center><input type="submit" class='btn btn-primary'></center>

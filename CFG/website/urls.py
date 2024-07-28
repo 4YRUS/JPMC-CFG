@@ -7,5 +7,12 @@ urlpatterns = [
     path('logout/', views.user_logout, name='logout'),
     path('register/', views.register, name='register'),
     path('sponsor/', views.sponsor, name='sponsor'),
+    path('truehome/',views.truehome,name='truehome'),
+    path('history/',views.history,name='history'),
+    path('cloths/',views.cloths,name='cloths'),
+    path('apple/',views.apple,name='apple'),
+    path('banana/',views.banana,name='banana'),
+    path('children/',views.children,name='children'),
+    path('studentregister/',views.studentregister,name='studentregister'),
 
 ]

@@ -2,6 +2,9 @@ from django.shortcuts import render,redirect
 from django.contrib.auth import authenticate,login,logout
 from django.contrib import messages
 from .models import record2
+from .models import record5
+from .models import price
+from .models import relation
 from .forms import sign_up
 
 global overallnames
@@ -12,9 +15,20 @@ overallnames.add('admin')
 
 def home(request):
 	if request.user.is_authenticated:
-		return render(request,'home.html',{})
-	else:
-		return redirect('login')
+		username = request.user.username
+		objects = record2.objects.all()
+		place = ''
+		for item in objects:
+			if item.username == username:
+				place = item.role
+
+		if place == 'DONOR':
+			return render(request,'home.html',{'role' : place})
+		if place == 'GRASSROOT WORKER':
+			return render(request,'leef.html',{'role' : place})
+
+	return redirect('login')		
+	
 
 def user_login(request):
 	if request.method=="POST":
@@ -30,9 +44,9 @@ def user_login(request):
 			login(request,user)
 
 			if place == 'DONOR':
-				return render(request,'home.html',{'role' : place})
+				return redirect('home')
 			if place == 'GRASSROOT WORKER':
-				return render(request,'leef.html',{'role' : place})
+				return redirect('home')
 			if place == "":
 				return user_logout(request)
 		
@@ -40,6 +54,39 @@ def user_login(request):
 
 def user_logout(request):
 	logout(request)
+	return redirect('truehome')
+
+
+def studentregister(request):
+	if request.user.is_authenticated:
+		return render(request,'studentreport.html',{})
+	return redirect('login')
+
+def apple(request):
+	if request.user.is_authenticated:
+		if request.method=='POST':
+			name = request.POST['name']
+			amount = request.POST['amount']
+			quest = price(name = name, amount = amount)
+			quest.save()
+		return render(request,'apple.html',{})
+	return redirect('login')
+
+def children(request):
+	if request.user.is_authenticated:
+		
+		data = [item for item in price.objects.all()]
+		return render(request,'childrendata.html',{'data':data})	
+	return redirect('login')
+
+def banana(request):
+	if request.user.is_authenticated:
+		if request.method=='POST':
+			student = request.POST['name']
+			donator = request.POST['amount']
+			quest = price(student = student, donator = donator)
+			quest.save()
+		return render(request,'banana.html',{})
 	return redirect('login')
 
 
@@ -71,9 +118,34 @@ def register(request):
 	return render(request,'register.html',{'form':form})
 
 def sponsor(request):
-	if request.method=='POST':
-		name = request.POST['name']
-		email = request.POST['email']
-		amount = request.POST['amount']
-		return render(request,'done.html',{'data':[name,email,amount]})
-	return render(request,'sponsor.html')
+	if request.user.is_authenticated:
+		if request.method=='POST':
+
+			name = request.POST['name']
+			email = request.POST['email']
+			child = request.POST['child']
+			amount = request.POST['amount']
+			member = record5(child = child , username = email,amount= amount, name=name)
+			member.save()
+			relationship = relation(donator = email, student=child)
+			relationship.save()
+			return render(request,'done.html',{'child': child, 'name':name,'email':email,'amount':amount})
+		return render(request,'sponsor.html')
+	else:
+		return redirect('login')
+
+def truehome(request):
+	return render(request,'truehome.html')
+
+def history(request):
+	if request.user.is_authenticated:
+		name = request.user.username
+		data = [item for item in record5.objects.all() if item.username==request.user.username]
+		return render(request,'history.html',{'name' : name , 'data':data})
+
+	return redirect('login')
+
+def cloths(request):
+	if request.user.is_authenticated:
+		return render(request,'cloths.html')
+	return redirect('login')
